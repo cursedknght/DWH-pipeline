@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Airflow: логи и локальные настройки
+airflow/logs/
+airflow/plugins/
+airflow/config/
+airflow/.env
+
+# Не относится к проекту
+kafka/
+greengage/
+spark_test.py
+hello.py
+test.py
+
+# Редактор
+.vscode/

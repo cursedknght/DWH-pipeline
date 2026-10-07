@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: pg
+    environment:
+      POSTGRES_USER: de
+      POSTGRES_PASSWORD: de
+      POSTGRES_DB: dwh
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: ch
+    environment:
+      CLICKHOUSE_USER: de
+      CLICKHOUSE_PASSWORD: de
+      CLICKHOUSE_DB: dwh
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    volumes:
+      - ch_data:/var/lib/clickhouse
+
+volumes:
+  pg_data:
+  ch_data:

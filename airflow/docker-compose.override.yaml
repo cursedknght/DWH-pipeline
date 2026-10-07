@@ -1,0 +1,13 @@
+x-extra: &extra
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+  environment:
+    AIRFLOW_CONN_DWH_POSTGRES: "postgres://de:de@host.docker.internal:5432/dwh"
+    AIRFLOW_CONN_DWH_CLICKHOUSE: "generic://de:de@host.docker.internal:8123/dwh"
+
+services:
+  airflow-apiserver: *extra
+  airflow-scheduler: *extra
+  airflow-dag-processor: *extra
+  airflow-worker: *extra
+  airflow-triggerer: *extra
