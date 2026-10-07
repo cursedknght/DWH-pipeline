@@ -56,8 +56,8 @@ Airflow (по расписанию)
 Нужны Docker и Docker Compose.
 
 ```bash
-git clone git@github.com:cursedknght/fintech-dwh-pipeline.git
-cd fintech-dwh-pipeline
+git clone git@github.com:cursedknght/DWH-pipeline.git
+cd DWH-pipeline
 
 # 1. PostgreSQL и ClickHouse
 docker compose up -d
