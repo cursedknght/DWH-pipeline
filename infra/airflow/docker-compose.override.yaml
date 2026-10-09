@@ -4,6 +4,8 @@ x-extra: &extra
   environment:
     AIRFLOW_CONN_DWH_POSTGRES: "postgres://de:de@host.docker.internal:5432/dwh"
     AIRFLOW_CONN_DWH_CLICKHOUSE: "generic://de:de@host.docker.internal:8123/dwh"
+  volumes:
+    - ../../dags:/opt/airflow/dags/dwh_pipeline
 
 services:
   airflow-apiserver: *extra
