@@ -60,13 +60,14 @@ git clone git@github.com:cursedknght/DWH-pipeline.git
 cd DWH-pipeline
 
 # 1. PostgreSQL и ClickHouse
+cd infra
 docker compose up -d
 
 # 2. Airflow
 cd airflow
 cp .env.example .env
 sed -i "s/AIRFLOW_UID=.*/AIRFLOW_UID=$(id -u)/" .env
-mkdir -p logs plugins config
+mkdir -p dags logs plugins config
 docker compose up airflow-init
 docker compose up -d
 ```
